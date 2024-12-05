@@ -8,6 +8,7 @@ app = Flask(__name__)
 
 # Load data
 data = pd.read_csv('disease_outbreaks_2019_to_2023.csv')
+precautions_data = pd.read_csv('Dengue_Precautions_2019_2023_1.csv')  # Load precautions
 
 @app.route('/')
 def home():
@@ -34,6 +35,7 @@ def predict():
             return render_template(
                 'result.html',
                 prediction=None,
+                precautions=None,
                 error="Input values must be non-negative. Please try again."
             )
         
@@ -44,10 +46,14 @@ def predict():
         return render_template(
             'result.html',
             prediction=None,
+            precautions=None,
             error="Invalid input. Please enter numeric values."
         )
 
-    return render_template('result.html', prediction=prediction, error=None)
+    # Get Precautions (Add logic to fetch relevant rows if necessary)
+    precautions = precautions_data['Precautions'].tolist()
+
+    return render_template('result.html', prediction=prediction, precautions=precautions, error=None)
 
 if __name__ == '__main__':
     app.run(debug=True)

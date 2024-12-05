@@ -17,5 +17,16 @@
             <p>{{ prediction }}</p>
         {% endif %}
     </div>
+
+    {% if precautions %}
+        <div class="precautions">
+            <h2>Precautions to Take:</h2>
+            <ul>
+                {% for precaution in precautions %}
+                    <li>{{ precaution }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
 </body>
 </html>
