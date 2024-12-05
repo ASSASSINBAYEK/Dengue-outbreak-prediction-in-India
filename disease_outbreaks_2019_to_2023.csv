@@ -1,0 +1,16 @@
+Year,State,Dengue_Cases,Dengue_Deaths,Temperature (°C),Rainfall (mm),Healthcare_Index,Vaccination_Coverage (%)
+2019,Andhra Pradesh,5286,0,29.5,1200,65,70
+2019,Karnataka,16986,13,27.3,1600,68,75
+2019,Kerala,4652,16,28.2,2500,72,80
+2020,Andhra Pradesh,925,0,30.1,1150,66,72
+2020,Karnataka,3823,0,27.5,1580,69,77
+2020,Kerala,4399,5,28.6,2600,73,82
+2021,Andhra Pradesh,4760,0,29.8,1250,67,74
+2021,Karnataka,7393,7,27.8,1700,70,78
+2021,Kerala,3251,27,28.5,2450,74,83
+2022,Andhra Pradesh,6391,0,30.0,1280,68,76
+2022,Karnataka,9889,9,27.9,1750,71,80
+2022,Kerala,4432,29,28.8,2480,75,85
+2023,Andhra Pradesh,6453,0,29.9,1300,69,78
+2023,Karnataka,19300,11,28.1,1800,72,82
+2023,Kerala,17426,153,28.9,2500,76,87

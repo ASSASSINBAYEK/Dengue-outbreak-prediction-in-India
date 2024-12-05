@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Outbreak Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Disease Outbreak Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="temperature">Temperature (°C):</label>
+        <input type="text" id="temperature" name="temperature"><br><br>
+        <label for="rainfall">Rainfall (mm):</label>
+        <input type="text" id="rainfall" name="rainfall"><br><br>
+        <label for="healthcare_index">Healthcare Index:</label>
+        <input type="text" id="healthcare_index" name="healthcare_index"><br><br>
+        <button type="submit">Predict Dengue Cases</button>
+    </form>
+    <footer>
+        © 2024 Disease Outbreak Prediction
+    </footer>
+</body>
+</html>
