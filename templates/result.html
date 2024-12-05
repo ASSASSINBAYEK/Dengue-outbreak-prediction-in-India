@@ -9,13 +9,13 @@
 <body>
     <h1>Prediction Results</h1>
     <div class="result">
-        {% if prediction %}
+        {% if error %}
+            <h2>Error:</h2>
+            <p>{{ error }}</p>
+        {% elif prediction is not none %}
             <h2>Predicted Dengue Cases:</h2>
             <p>{{ prediction }}</p>
         {% endif %}
     </div>
-    <footer>
-        © 2024 Disease Outbreak Prediction
-    </footer>
 </body>
 </html>

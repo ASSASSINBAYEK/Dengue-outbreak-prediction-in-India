@@ -2,11 +2,12 @@ from flask import Flask, render_template, request
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
+import numpy as np
 
 app = Flask(__name__)
 
 # Load data
-data = pd.read_csv("disease_outbreaks_2019_to_2023.csv")
+data = pd.read_csv('disease_outbreaks_2019_to_2023.csv')
 
 @app.route('/')
 def home():
@@ -23,12 +24,30 @@ def predict():
 
     # Predict with user input
     user_input = request.form
-    temperature = float(user_input['temperature'])
-    rainfall = float(user_input['rainfall'])
-    healthcare_index = float(user_input['healthcare_index'])
-    prediction = model.predict([[temperature, rainfall, healthcare_index]])
+    try:
+        temperature = float(user_input['temperature'])
+        rainfall = float(user_input['rainfall'])
+        healthcare_index = float(user_input['healthcare_index'])
 
-    return render_template('result.html', prediction=int(prediction[0]))
+        # Ensure all inputs are non-negative
+        if temperature < 0 or rainfall < 0 or healthcare_index < 0:
+            return render_template(
+                'result.html',
+                prediction=None,
+                error="Input values must be non-negative. Please try again."
+            )
+        
+        prediction = model.predict([[temperature, rainfall, healthcare_index]])
+        prediction = max(0, int(prediction[0]))  # Ensure no negative predictions
+
+    except ValueError:
+        return render_template(
+            'result.html',
+            prediction=None,
+            error="Invalid input. Please enter numeric values."
+        )
+
+    return render_template('result.html', prediction=prediction, error=None)
 
 if __name__ == '__main__':
     app.run(debug=True)

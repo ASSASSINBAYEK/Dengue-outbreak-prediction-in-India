@@ -10,15 +10,12 @@
     <h1>Disease Outbreak Prediction</h1>
     <form action="/predict" method="post">
         <label for="temperature">Temperature (°C):</label>
-        <input type="text" id="temperature" name="temperature"><br><br>
+        <input type="number" id="temperature" name="temperature" min="0" step="0.1" required><br><br>
         <label for="rainfall">Rainfall (mm):</label>
-        <input type="text" id="rainfall" name="rainfall"><br><br>
+        <input type="number" id="rainfall" name="rainfall" min="0" step="0.1" required><br><br>
         <label for="healthcare_index">Healthcare Index:</label>
-        <input type="text" id="healthcare_index" name="healthcare_index"><br><br>
+        <input type="number" id="healthcare_index" name="healthcare_index" min="0" step="0.1" required><br><br>
         <button type="submit">Predict Dengue Cases</button>
     </form>
-    <footer>
-        © 2024 Disease Outbreak Prediction
-    </footer>
 </body>
 </html>
